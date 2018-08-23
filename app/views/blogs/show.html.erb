@@ -4,6 +4,13 @@
      <p>タイトル: <%= @blog.title %></p>
      <p>内容: <%= @blog.content %></p>
      <p>画像: <%= image_tag @blog.image %></p>
+      <p>コメント一覧</p>
+  <div id="comments_area">
+  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+  </div>
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
      <% if @blog.user == current_user %>
      <%= link_to '編集', edit_blog_path, class: 'btn btn-info' %>　
      <% end %>

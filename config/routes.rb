@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  
   resources :feeds
   resources :contacts
   get 'sessions/new'
 
   get '/', to:'tops#index'
   resources :blogs do
+    resources :comments
     collection do
       post :confirm
    end
