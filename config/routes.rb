@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  
-  resources :feeds
-  resources :contacts
   get 'sessions/new'
+
+  get 'relationships/create'
+  get 'relationships/destroy'
+  resources :relationships, only: [:create, :destroy]
+
+
+  #resources :contacts
+
 
   get '/', to:'tops#index'
   resources :blogs do
@@ -12,7 +17,7 @@ Rails.application.routes.draw do
    end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+  resources :users#, only: [:index] 
   resources :favorites, only: [:create, :destroy]
   get '/sessions',to:'sessions#new'
 if Rails.env.development?
