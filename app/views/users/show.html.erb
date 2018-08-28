@@ -3,8 +3,12 @@
 <p>メールアドレス: <%= @user.email %></p>
 <p>イメージ: <%= image_tag @user.image %></p>
 
-<ul>
-<% @favorites_blog.each do |blog| %>
-<li>お気に入り：<%= link_to "#{blog.content}", blog_path(blog.id) %></li>
-<% end %>
-</ul>
+<div>
+    <table border="0">
+    <% @favorites_blog.each do |blog| %>
+    <tr>
+    <td width="250" height="50">お気に入り：<%= link_to "#{blog.content}", blog_path(blog.id) %></td>
+    </tr>
+    <% end %>
+    </table>
+</div>
