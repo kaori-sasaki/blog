@@ -17,7 +17,6 @@
     <li><%=link_to "つぶやく",new_blog_path %></li>
     <% if logged_in? %>
     <li><%= link_to "お気に入り", user_path(current_user.id) %></li>
-    <li><%= link_to'ブログ一覧画面を確認する',blogs_path %></li>
     <li><%= link_to 'ユーザー一覧', users_path %></li>
     <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
     <% else %>
